@@ -93,7 +93,7 @@ section {
 
 .home-content1 .text-animate {
     position: relative;
-    width: 42rem;
+    width: 32.8rem;
 }
 
 .home-content1 .text-animate h2 {
@@ -327,12 +327,19 @@ span {
     transform: translate(-50%);
 }
 
-.projects-box {
+.projects-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0 2rem;
+}
+
+.projects-carousel {
     display: flex;
-    flex-wrap: wrap;
     gap: 3rem;
-    justify-content: center;
-    margin-top: 1rem;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    padding: 1rem 0.5rem 2rem;
 }
 
 .project-card {
@@ -340,13 +347,13 @@ span {
     border: .2rem solid var(--main-color);
     border-radius: 1rem;
     padding: 3rem;
-    flex: 1 1 30rem;
-    max-width: 40rem;
-    transition: .3s ease;
+    flex: 0 0 calc(33.333% - 2rem);
+    min-width: calc(33.333% - 2rem);
+    transition: transform .3s ease, box-shadow .3s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    display: flex;                
+    display: flex;
     flex-direction: column;
 }
 
@@ -410,7 +417,8 @@ span {
 .project-links {
     display: flex;
     gap: 1.5rem;
-    margin-top: auto; 
+    margin-top: auto;
+    min-height: 2.4rem;
 }
 
 .project-links a {
@@ -425,6 +433,58 @@ span {
 
 .project-links a:hover {
     color: var(--text-color);
+}
+
+/* Carousel Arrow Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--second-bg-color);
+    border: .2rem solid var(--main-color);
+    color: var(--main-color);
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    font-size: 2.4rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s ease;
+}
+
+.carousel-btn:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0, 171, 240, 0.4);
+}
+
+.carousel-btn-left { left: 0; }
+.carousel-btn-right { right: 0; }
+
+/* Carousel Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.carousel-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--second-bg-color);
+    border: .15rem solid var(--main-color);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.carousel-dot.active {
+    background: var(--main-color);
+    transform: scale(1.3);
 }
 
 /* ── EDUCATION SECTION ── */
@@ -499,11 +559,6 @@ span {
 
 .education-content .content:hover::before {
     width: 100%;
-}
-
-.education-content .content:hover {
-    background: var(--bg-color);
-    box-shadow: 0 0 20px rgba(0, 171, 240, 0.2);
 }
 
 .education-content .content .year {
@@ -797,7 +852,6 @@ section:nth-child(odd) .animate.scroll,
 }
 
 .about.show-animate .animate.scroll,
-.projects.show-animate .animate.scroll,
 .education.show-animate .animate.scroll,
 .skills.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
@@ -910,9 +964,9 @@ section:nth-child(odd) .animate.scroll,
         opacity: .6;
     }
 
-    .projects-box {
-        flex-direction: column;
-        align-items: center;
+    .projects-carousel .project-card {
+        flex: 0 0 calc(100% - 2rem);
+        min-width: calc(100% - 2rem);
     }
 }
 
