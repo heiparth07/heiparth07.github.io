@@ -93,7 +93,7 @@ section {
 
 .home-content1 .text-animate {
     position: relative;
-    width: 32.8rem;
+    width: 42rem;
 }
 
 .home-content1 .text-animate h2 {
@@ -346,6 +346,8 @@ span {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    display: flex;                
+    flex-direction: column;
 }
 
 .project-card::before {
@@ -386,6 +388,7 @@ span {
     color: #aab8c2;
     margin-bottom: 2rem;
     line-height: 1.7;
+    flex-grow: 1;
 }
 
 .project-tags {
@@ -407,6 +410,7 @@ span {
 .project-links {
     display: flex;
     gap: 1.5rem;
+    margin-top: auto; 
 }
 
 .project-links a {
@@ -495,6 +499,11 @@ span {
 
 .education-content .content:hover::before {
     width: 100%;
+}
+
+.education-content .content:hover {
+    background: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0, 171, 240, 0.2);
 }
 
 .education-content .content .year {
@@ -788,6 +797,7 @@ section:nth-child(odd) .animate.scroll,
 }
 
 .about.show-animate .animate.scroll,
+.projects.show-animate .animate.scroll,
 .education.show-animate .animate.scroll,
 .skills.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
