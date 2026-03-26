@@ -93,7 +93,7 @@ section {
 
 .home-content1 .text-animate {
     position: relative;
-    width: 32.8rem;
+    width: 42rem;
 }
 
 .home-content1 .text-animate h2 {
@@ -561,6 +561,11 @@ span {
     width: 100%;
 }
 
+.education-content .content:hover {
+    background: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0, 171, 240, 0.2);
+}
+
 .education-content .content .year {
     font-size: 1.5rem;
     color: var(--main-color);
@@ -852,6 +857,7 @@ section:nth-child(odd) .animate.scroll,
 }
 
 .about.show-animate .animate.scroll,
+.projects.show-animate .animate.scroll,
 .education.show-animate .animate.scroll,
 .skills.show-animate .animate.scroll,
 .contact.show-animate .animate.scroll,
